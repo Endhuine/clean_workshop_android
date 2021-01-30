@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.endhuine.cleanworkshop.R
 import com.endhuine.cleanworkshop.databinding.FragmentUserDetailBinding
@@ -27,6 +28,8 @@ class UserDetailFragment : Fragment() {
     private var _binding: FragmentUserDetailBinding? = null
     private val binding get() = _binding!!
 
+    private val args: UserDetailFragmentArgs by navArgs()
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -39,6 +42,7 @@ class UserDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.requireUser(args.userId)
         viewModel.user.observe(viewLifecycleOwner, Observer { user ->
             bindUser(user)
         })

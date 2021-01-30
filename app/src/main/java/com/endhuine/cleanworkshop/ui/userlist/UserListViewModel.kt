@@ -15,11 +15,11 @@ class UserListViewModel @Inject constructor(): ViewModel() {
 
     val userList: LiveData<List<UserListModel>> = liveData {
         emit(listOf(
-            UserListModel("https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
-            UserListModel("https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
-            UserListModel("https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
-            UserListModel("https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
-            UserListModel("https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
+            UserListModel(1,"https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
+            UserListModel(2, "https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
+            UserListModel(3, "https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
+            UserListModel(4, "https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
+            UserListModel(5, "https://reqres.in/img/faces/1-image.jpg", "user.mock@mail.com"),
         ))
     }
 

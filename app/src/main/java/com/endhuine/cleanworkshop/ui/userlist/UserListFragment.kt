@@ -26,7 +26,7 @@ class UserListFragment() : Fragment() {
 
     private val userAdapter = UserAdapter {
         //Mock navigation
-        findNavController().navigate(UserListFragmentDirections.actionFirstFragmentToSecondFragment())
+        findNavController().navigate(UserListFragmentDirections.actionFirstFragmentToSecondFragment(it.id))
     }
 
     override fun onCreateView(

@@ -1,6 +1,7 @@
 package com.endhuine.cleanworkshop.ui.user
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.endhuine.cleanworkshop.ui.user.model.UserDetailModel
@@ -13,12 +14,19 @@ import javax.inject.Inject
 @HiltViewModel
 class UserDetailViewModel @Inject constructor() : ViewModel() {
 
-    val user: LiveData<UserDetailModel> = liveData {
-        emit(UserDetailModel(
+    /**
+     * Request the loading of a user with id as [userId]
+     *
+     * @param userId as the required user id
+     */
+    fun requireUser(userId: Int) {
+        user.postValue(UserDetailModel(
             "user.mock@mail.com",
             "user",
             "mock",
             "https://reqres.in/img/faces/1-image.jpg"
         ))
     }
+
+    val user: MutableLiveData<UserDetailModel> = MutableLiveData()
 }
